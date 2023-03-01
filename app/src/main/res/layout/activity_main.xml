@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="371dp"
+        android:layout_height="74dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="46dp"
+        android:text="@string/bmi_calculator"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <EditText
+        android:id="@+id/edtinputweight"
+        android:layout_width="340dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="164dp"
+        android:autofillHints=""
+        android:background="#38ff"
+        android:drawableStart="@drawable/baseline_fitness_center_24"
+        android:hint="@string/enter_weight_in_kg"
+        android:inputType="numberDecimal"
+        android:textColorHint="@color/design_default_color_primary_dark"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <EditText
+        android:id="@+id/edtinputheight"
+        android:layout_width="346dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="254dp"
+        android:autofillHints=""
+        android:background="#38ff"
+        android:drawableStart="@drawable/twotone_height_24"
+        android:hint="@string/enter_height_in_cm"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="@color/design_default_color_primary_dark"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/btncalclear"
+        android:layout_width="210dp"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="354dp"
+        android:contentDescription="@string/enter_height_in_cm"
+        android:text="@string/calculate" />
+
+    <TextView
+        android:id="@+id/showbmivalue"
+        android:layout_width="315dp"
+        android:layout_height="79dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginBottom="202dp"
+        android:background="@color/material_dynamic_neutral_variant20"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="30sp"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/showmessage"
+        android:layout_width="313dp"
+        android:layout_height="74dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="57dp"
+        android:background="@color/material_dynamic_neutral20"
+        android:textColor="@color/design_default_color_secondary"
+        android:textSize="30sp" />
+
+</RelativeLayout>
