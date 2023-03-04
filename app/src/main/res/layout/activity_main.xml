@@ -77,7 +77,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="54dp"
         android:layout_marginBottom="202dp"
-        android:background="@color/material_dynamic_neutral_variant20"
         android:textColor="@color/design_default_color_error"
         android:textSize="30sp"
         tools:ignore="TextSizeCheck" />
@@ -90,7 +89,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="53dp"
         android:layout_marginBottom="57dp"
-        android:background="@color/material_dynamic_neutral20"
         android:textColor="@color/design_default_color_secondary"
         android:textSize="30sp" />
 

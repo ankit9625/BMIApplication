@@ -5,4 +5,7 @@
     <string name="enter_height_in_cm">       Enter Height in CM   </string>
     <string name="calculate">CALCULATE</string>
     <string name="bmi_value_is">BMI Value is -</string>
+    <string name="First_Name">first_name</string>
+    <string name="about_app">About App</string>
+    <string name="exit">Exit</string>
 </resources>
