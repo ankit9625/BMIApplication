@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutDeveloper">
+
+    <TextView
+        android:id="@+id/developerbio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/hiii_my_name_is_ankit_kumar_n_i_develope_this_application_for_calculate_body_mass_index_n_basically_bmi_depend_on_your_height_and_weight_this_calculator_calculate_your_height_and_weigth_n_and_this_application_people_helps_to_know_body_mass_index_according_weight_and_height_n_n_n_version_1_0_beta_n_date_10_03_2023_n_n_n_n_n_n_developed_by_android_developer_nkit_kumar"
+        android:textColor="@color/purple_700"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/developerbio"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ankitg"
+        android:gravity="center" />
+
+</RelativeLayout>

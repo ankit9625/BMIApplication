@@ -1,6 +1,8 @@
 package com.example.bmiapplication
 // Here Import Some important Packages
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
@@ -8,20 +10,18 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.bmiapplication.R.*
 import com.example.bmiapplication.databinding.ActivityMainBinding
 
 // This is My Main Class which will be Execute and this inherited properties of Superclass AppCompatActivity
-@Suppress("UNREACHABLE_CODE")
+@Suppress("UNREACHABLE_CODE", "DEPRECATION", "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     // Here I Declare ActivityMainBinding Type Reference Variable which Contain All XML File of Components of Objects or Views
     private lateinit var binding:ActivityMainBinding
     // Here I Declare isClear Variable which type is Boolean which contains only true and false value
     private var isClear=true
     // This is Create function which Create Our Activity at run time
-
-    private lateinit var builder:AlertDialog.Builder
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,49 +31,96 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         // Here I Declare Button Listener to perform task from button and Here this is Current class object
         binding.btncalclear.setOnClickListener(this)
-
-        builder=AlertDialog.Builder(this)
     }
-
+// Here I Use MenuOption Some important Code
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater:MenuInflater=menuInflater
-        inflater.inflate(R.menu.my_option_menu,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+    val inflater: MenuInflater = menuInflater
+    inflater.inflate(R.menu.my_option_menu, menu)
+    return super.onCreateOptionsMenu(menu)
+}
 // I Use Option Menu Which make my Application Good and excellent
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.about_app->{
-              Toast.makeText(this," About App ",Toast.LENGTH_LONG).show()
+        when(item.itemId) {
+
+            id.sub_option_dail -> {
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9625812224"))
+                startActivity(intent)
             }
 
-            R.id.exit->{
-                builder.setTitle("Alert!")
-                    .setMessage("Do You Want to Exit ?")
-                    .setCancelable(true)
-                    .setPositiveButton("Yes"){ _, _ ->
-                        finish()
-                    }
-                    .setNegativeButton("No"){ dialogInterface, _ ->
-                        dialogInterface.cancel()
 
-                    }
-                    .setNeutralButton("help"){ _, _ ->
-                        Toast.makeText(this,"Help",Toast.LENGTH_LONG).show()
-                    }
-
+            id.sub_option_call -> {
+               val intent=Intent(Intent.ACTION_CALL)
+                intent.data= Uri.parse("tel:9625812224")
+                startActivity(intent)
             }
+
+
+            id.sub_option_email -> {
+                val intent = Intent(Intent.ACTION_SENDTO)
+                intent.data = Uri.parse("mailto:")
+                    intent.putExtra(Intent.EXTRA_EMAIL, "ankitbabu647@gmail.com")
+                    intent.putExtra(Intent.EXTRA_SUBJECT," Leave to Attend Friend Wedding ")
+                    intent.putExtra(Intent.EXTRA_TEXT," ")
+                startActivity(intent)
+            }
+
+
+            id.sub_option_online_knowladge -> {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.calculator.net/bmi-calculator.html?ctype=metric&cage=25&csex=m&cheightfeet=5&cheightinch=10&cpound=160&cheightmeter=170&ckg=50&printit=0&x=57&y=25")
+                )
+                startActivity(intent)
+            }
+
+
+            id.sub_option_see_video_about_bmi -> {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=oQhHW_hUAFg")
+                )
+                startActivity(intent)
+            }
+
+
+            id.about_app -> {
+                val intent = Intent(this, AboutDeveloper::class.java)
+                startActivity(intent)
+            }
+
+
+            id.bmichart -> {
+                val intent = Intent(this, BMIActivity::class.java)
+                startActivity(intent)
+            }
+
         }
-        return super.onOptionsItemSelected(item)
-    }
-    // Here I Use Code for disable back button Action
-    @Deprecated("Deprecated in Java", ReplaceWith("Unit"))
-    override fun onBackPressed() = // super.onBackPressed()
-        Unit
 
+            return super.onOptionsItemSelected(item)
+    }
+
+    // Here I Use Code for disable back button Action
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        showAlertDialog()
+    }
+
+        private fun showAlertDialog() {
+            val alertDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            alertDialog.setTitle("Confirmation")
+            alertDialog.setMessage(" Do You Want to Exit ")
+            alertDialog.setPositiveButton("Yes"
+            ) { _, _ -> finish()}
+
+            alertDialog.setNegativeButton("No"
+            ) { _, _ -> }
+
+            val alert: androidx.appcompat.app.AlertDialog = alertDialog.create()
+            alert.show()
+    }
 
     // this is Override function which belong into AppCompatActivity Class and This is Click event function
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SuspiciousIndentation")
     override fun onClick(v: View?) {
       // Here I Take two conditions
       // if isClear will be true Then condition will be Execute if()

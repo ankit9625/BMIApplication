@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item
+    android:id="@+id/sub_menu"
+    android:title="@string/contect_us">
+    <menu>
+        <item
+        android:id="@+id/sub_option_dail"
+        android:title="@string/dail_a_number"/>
+
+    <item
+        android:id="@+id/sub_option_call"
+        android:title="@string/call_a_number"/>
+
+    <item
+        android:id="@+id/sub_option_email"
+        android:title="@string/e_mail"/>
+
+    <item
+        android:id="@+id/sub_option_see_video_about_bmi"
+        android:title="@string/see_video_know_bmi"/>
+
+    <item
+        android:id="@+id/sub_option_online_knowladge"
+        android:title="@string/gether_online_about_bmi"/>
+    </menu>
+
+        </item>
+
+<item android:id="@+id/bmichart"
+        android:title="@string/see_bmi_chart"/>
+
 <item
     android:id="@+id/about_app"
-    android:icon="@drawable/baseline_portrait_24"
     android:title="@string/about_app"/>
-<item
-    android:id="@+id/exit"
-    android:icon="@drawable/baseline_exit_to_app_24"
-    android:title="@string/exit"/>
 
 </menu>
