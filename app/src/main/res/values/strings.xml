@@ -32,4 +32,6 @@
     <string name="contect_us">contect_us</string>
     <string name="see_video_know_bmi">See_Video_Know_BMI</string>
     <string name="gether_online_about_bmi">Gether_Online_About_BMI</string>
+    <string name="enter_a_number_Dial">Enter A Number</string>
+    <string name="call">Call</string>
 </resources>

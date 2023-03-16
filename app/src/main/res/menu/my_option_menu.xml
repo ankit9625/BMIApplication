@@ -11,10 +11,6 @@
         android:title="@string/dail_a_number"/>
 
     <item
-        android:id="@+id/sub_option_call"
-        android:title="@string/call_a_number"/>
-
-    <item
         android:id="@+id/sub_option_email"
         android:title="@string/e_mail"/>
 

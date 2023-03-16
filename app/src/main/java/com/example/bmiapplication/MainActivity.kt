@@ -1,17 +1,17 @@
 package com.example.bmiapplication
 // Here Import Some important Packages
 import android.annotation.SuppressLint
+import android.app.ActionBar.LayoutParams
+import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bmiapplication.R.*
+import com.example.bmiapplication.databinding.ActivityCustomDialogForTakeAnumberBinding
 import com.example.bmiapplication.databinding.ActivityMainBinding
 
 // This is My Main Class which will be Execute and this inherited properties of Superclass AppCompatActivity
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var isClear=true
     // This is Create function which Create Our Activity at run time
 
-
+    private lateinit var customdiaolonumberinput:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Here I initialize My ViewBinding reference with ActivityMainBinding Object
@@ -43,15 +43,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(item.itemId) {
 
             id.sub_option_dail -> {
-                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9625812224"))
-                startActivity(intent)
-            }
+                val activitycustomdialogbinding=ActivityCustomDialogForTakeAnumberBinding.inflate(layoutInflater)
+                val dialog=Dialog(this)
+                dialog.setContentView(activitycustomdialogbinding.root)
+                dialog.setCancelable(false)
+                dialog.show()
+                val windowManager=WindowManager.LayoutParams()
+                windowManager.width=LayoutParams.MATCH_PARENT
+                windowManager.height=LayoutParams.WRAP_CONTENT
+                dialog.window?.attributes=windowManager
+
+                activitycustomdialogbinding.btnCall.setOnClickListener {
+                   customdiaolonumberinput=activitycustomdialogbinding.etNumberInput.editText?.text.toString()
+                    val intent=Intent(Intent.ACTION_CALL)
+                    intent.data= Uri.parse("tel:$customdiaolonumberinput")
+                    startActivity(intent)
+                    dialog.dismiss()
+                }
 
 
-            id.sub_option_call -> {
-               val intent=Intent(Intent.ACTION_CALL)
-                intent.data= Uri.parse("tel:9625812224")
-                startActivity(intent)
             }
 
 
@@ -66,11 +76,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
             id.sub_option_online_knowladge -> {
-                val intent = Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://www.calculator.net/bmi-calculator.html?ctype=metric&cage=25&csex=m&cheightfeet=5&cheightinch=10&cpound=160&cheightmeter=170&ckg=50&printit=0&x=57&y=25")
-                )
+                val intent=Intent(this@MainActivity,WevViewForActivity::class.java)
                 startActivity(intent)
+
             }
 
 
