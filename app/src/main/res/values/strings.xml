@@ -34,4 +34,8 @@
     <string name="gether_online_about_bmi">Gether_Online_About_BMI</string>
     <string name="enter_a_number_Dial">Enter A Number</string>
     <string name="call">Call</string>
+    <string name="never_ask_again">Never Ask Again</string>
+    <string name="tell_other_what_you_think_about_this_app">Tell other what you think about this app</string>
+    <string name="rate_us">Rate_Us</string>
+    <string name="rating_later">Rating_Later</string>
 </resources>

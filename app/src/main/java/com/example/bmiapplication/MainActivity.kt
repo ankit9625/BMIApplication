@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.bmiapplication.R.*
 import com.example.bmiapplication.databinding.ActivityCustomDialogForTakeAnumberBinding
 import com.example.bmiapplication.databinding.ActivityMainBinding
+import com.example.bmiapplication.databinding.LayoutRateUsActivityBinding
 
 // This is My Main Class which will be Execute and this inherited properties of Superclass AppCompatActivity
 @Suppress("UNREACHABLE_CODE", "DEPRECATION", "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
@@ -100,6 +101,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             id.bmichart -> {
                 val intent = Intent(this, BMIActivity::class.java)
                 startActivity(intent)
+            }
+
+
+            id.rate_us->{
+                val layoutRateUsActivityBinding=LayoutRateUsActivityBinding.inflate(layoutInflater)
+                val dialog=Dialog(this)
+                dialog.setContentView(layoutRateUsActivityBinding.root)
+                dialog.setCancelable(false)
+                val windowManager=WindowManager.LayoutParams()
+                windowManager.width=LayoutParams.MATCH_PARENT
+                windowManager.height=LayoutParams.WRAP_CONTENT
+                dialog.window?.attributes=windowManager
+                dialog.show()
             }
 
         }
