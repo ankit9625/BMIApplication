@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.*
+import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bmiapplication.R.*
@@ -17,7 +18,8 @@ import com.example.bmiapplication.databinding.LayoutRateUsActivityBinding
 
 // This is My Main Class which will be Execute and this inherited properties of Superclass AppCompatActivity
 @Suppress("UNREACHABLE_CODE", "DEPRECATION", "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+    RatingBar.OnRatingBarChangeListener {
     // Here I Declare ActivityMainBinding Type Reference Variable which Contain All XML File of Components of Objects or Views
     private lateinit var binding:ActivityMainBinding
     // Here I Declare isClear Variable which type is Boolean which contains only true and false value
@@ -114,6 +116,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 windowManager.height=LayoutParams.WRAP_CONTENT
                 dialog.window?.attributes=windowManager
                 dialog.show()
+                layoutRateUsActivityBinding.ratingbar.onRatingBarChangeListener = this
             }
 
         }
@@ -281,6 +284,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.edtinputheight.isEnabled=true
             binding.edtinputheight.isClickable=true
         }
+    }
+
+    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+        val ratevalue=ratingBar?.rating
+        Toast.makeText(this, "$ratevalue", Toast.LENGTH_LONG).show()
     }
 
 }
