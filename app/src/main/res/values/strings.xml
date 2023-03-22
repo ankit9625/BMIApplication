@@ -38,4 +38,5 @@
     <string name="tell_other_what_you_think_about_this_app">Tell other what you think about this app</string>
     <string name="rate_us">Rate_Us</string>
     <string name="rating_later">Rating_Later</string>
+    <string name="submit">Submit</string>
 </resources>
