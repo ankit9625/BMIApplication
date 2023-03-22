@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     // This is Create function which Create Our Activity at run time
 
     private lateinit var customdiaolonumberinput: String
+    //-----------------------------------------------------------------------------------------------------
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Here I initialize My ViewBinding reference with ActivityMainBinding Object
@@ -34,15 +35,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         // Here I Declare Button Listener to perform task from button and Here this is Current class object
         binding.btncalclear.setOnClickListener(this)
     }
+    //-------------------------------------------------------------------------------------------------------
 
     // Here I Use MenuOption Some important Code
+    //---------------------------------------------------------------------------------------------------------
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.my_option_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+    //------------------------------------------------------------------------------------------------------------
 
     // I Use Option Menu Which make my Application Good and excellent
+    //--------------------------------------------------------------------------------------------------------------
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
 
@@ -121,7 +126,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         return super.onOptionsItemSelected(item)
     }
-
+    //-------------------------------------------------------------------------------------------------------------------
+    // Here I use Rating Bar Own Function
+    //-----------------------------------------------------------------------------------------------
     private fun showRatingBar(layoutRateUsActivityBinding: LayoutRateUsActivityBinding) {
         val dialog = Dialog(this)
         dialog.setContentView(layoutRateUsActivityBinding.root)
@@ -133,22 +140,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         dialog.show()
         layoutRateUsActivityBinding.ratingbar.setOnRatingBarChangeListener { ratingBar, _, _ ->
             layoutRateUsActivityBinding.btnSubmit.setOnClickListener {
-
-                Toast.makeText(this, "Submit Successfully ${ratingBar.rating}", Toast.LENGTH_SHORT)
-                    .show()
+                    Toast.makeText(this, "Submit Successfully ${ratingBar.rating}", Toast.LENGTH_SHORT)
+                        .show()
                 dialog.dismiss()
             }
         }
 
     }
-
+    //--------------------------------------------------------------------------------------------------------------
 
     // Here I Use Code for disable back button Action
+    //----------------------------------------------------------------------------------------------
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         showAlertDialog()
     }
+    //----------------------------------------------------------------------------------------------
 
+    //---------------------------------------------------------------------------------------------------------
     private fun showAlertDialog() {
         val alertDialog = androidx.appcompat.app.AlertDialog.Builder(this)
         alertDialog.setTitle("Confirmation")
@@ -164,8 +173,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         val alert: androidx.appcompat.app.AlertDialog = alertDialog.create()
         alert.show()
     }
+    //-----------------------------------------------------------------------------------------------------------
 
     // this is Override function which belong into AppCompatActivity Class and This is Click event function
+    //-----------------------------------------------------------------------------------------------------------
     @SuppressLint("SetTextI18n", "SuspiciousIndentation")
     override fun onClick(v: View?) {
         // Here I Take two conditions
@@ -173,6 +184,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         // and if() is Calculate BMI
         // if isClear will be false Then condition will be Execute else()
         // and else() is Clear All Fields
+        //-----------------------------------------------------------------------------------------------------------
         if (isClear) {
             // Here Firstly i Will Check All EditText Fields is Empty or Not
             if (binding.edtinputweight.text.toString()
@@ -271,7 +283,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 isClear = false
                 // Here I Set btn Text to show button new text after perform Action
                 binding.btncalclear.text = " CLEAR "
-            } else {
+            }
+            //---------------------------------------------------------------------------------------------------------------------
+            else {
                 // This will be show when Our All Fields will be Empty
                 if (TextUtils.isEmpty(binding.edtinputweight.text.toString()) && TextUtils.isEmpty(
                         binding.edtinputheight.text.toString()
@@ -297,6 +311,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         }
 
         // This Block will be Call when our button perform Clear Action
+        //-------------------------------------------------------------------------------------------
         else {
             binding.edtinputweight.text.clear()
             binding.edtinputheight.text.clear()
@@ -317,9 +332,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
 
 
+
 }
+//---------------------------------End Thread-------------------------------------------------------------------------
+
+
 // this is Calculation function
+//-------------------------------------------------------------------------------------------------------------------
 fun calculateBMI(w:Double,h:Double):Double{
     val cmtocsqr=h/100
     return w/(cmtocsqr*cmtocsqr)
 }
+//-------------------------------------------------------------------------------------------------------------------

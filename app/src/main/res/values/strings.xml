@@ -39,4 +39,13 @@
     <string name="rate_us">Rate_Us</string>
     <string name="rating_later">Rating_Later</string>
     <string name="submit">Submit</string>
+    <string name="age_years">Age (Years)</string>
+    <string name="_22">22</string>
+    <string name="height">Height</string>
+    <string name="ft">Ft</string>
+    <string name="_5">5</string>
+    <string name="in">in</string>
+    <string name="_5one">5</string>
+    <string name="_11">11</string>
+    <string name="bmi_value">BMI VALUE</string>
 </resources>
